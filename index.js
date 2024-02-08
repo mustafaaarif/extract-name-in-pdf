@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
 
 app.get('/upload', async (req, res) => {
 
-    let html = fs.readFileSync('tem3.html', 'utf8');
+    let html = fs.readFileSync('./tem3.html', 'utf8');
     const username = req?.query?.name || '';
     htmlContent = html.replace('[username]', username);
 
