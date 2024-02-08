@@ -11,7 +11,11 @@ app.get('/upload', async (req, res) => {
     const username = req?.query?.name || '';
     htmlContent = html.replace('[username]', username);
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: false,
+        args: ["--no-sandbox"]
+    });
+
     const page = await browser.newPage();
     await page.setContent(htmlContent);
 
